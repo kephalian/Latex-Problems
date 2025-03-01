@@ -6,7 +6,7 @@ README.md # Common LaTeX Issues and Fixes When working with LaTeX, you might enc
 
 
 
-## **1. References Not Showing in the Bibliography** 
+## **1. References Not Showing in the Bibliography (Bibtex and Biber) and PDF not generated** 
 
 ### **Problem You compile your `.tex` file, but the bibliography appears empty, even though your `.bib` file has entries. PDF file is not generated. Same problem for both biber and bibtex, pdf is not generated. Most importantly there is no error message except some vague warning that there are no citations.** ###
 
@@ -44,7 +44,7 @@ pdflatex myfile.tex
 
 ## 2. LaTeX Gets Stuck at a ? Prompt Problem ##
 
-## **2.While compiling, LaTeX suddenly stops and shows a ? prompt. It appears unresponsive.** ##
+## **2.While compiling or installing packagesth the LaTeX console suddenly stops and shows a ? prompt. It appears unresponsive.** ##
 
 Cause 
 
