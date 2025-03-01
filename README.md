@@ -59,9 +59,10 @@ Example
 If you see this:
 
 LaTeX Warning: Citation `knuth1984tex' on page 1 undefined on input line 5. ? 
+### See ? ###
 
-Just press Enter, and LaTeX will keep compiling.
-
+### Just press Enter, and LaTeX will keep compiling.###
+### It is not stuck just waiting for your input!###
 Conclusion Use \nocite{*} to ensure all references appear in the bibliography. Press Enter if LaTeX stops at a ? prompt. 
 
 By keeping these fixes in mind, you can save time and frustration while working with LaTeX.
