@@ -44,7 +44,7 @@ pdflatex myfile.tex
 
 ## 2. LaTeX Gets Stuck at a ? Prompt Problem ##
 
-## **2.While compiling or installing packagesth the LaTeX console suddenly stops and shows a ? prompt. It appears unresponsive.** ##
+## **2.While compiling or installing packages the LaTeX console suddenly stops and shows a ? prompt. It appears unresponsive.** ##
 
 Cause 
 
