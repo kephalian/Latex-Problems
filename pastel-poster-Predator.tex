@@ -1,0 +1,132 @@
+\documentclass[a4paper,portrait]{article} % Adjustable paper size
+\usepackage{tikz}
+\usepackage{tcolorbox} % For boxed content
+\usepackage{graphicx} % For including images
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} % Better font rendering
+\usepackage[margin=0.05\paperwidth]{geometry} % Proportional margins
+\usepackage{wrapfig} % For wrapping text around figures
+
+% Define pastel colors
+\definecolor{titlepastel}{RGB}{255, 182, 193} % Light pink for titles
+\definecolor{boxbg}{RGB}{245, 245, 220} % Pale beige background
+\definecolor{boxframe}{RGB}{173, 216, 230} % Light blue frame
+\definecolor{accentpurple}{RGB}{221, 160, 221} % Soft plum for emphasis
+\definecolor{textcolor}{RGB}{0, 0, 0} % Black for main text
+\definecolor{blueaccent}{RGB}{0, 102, 204} % Blue for titles and captions
+
+\begin{document}
+
+% Remove all page numbers
+\pagestyle{empty}
+
+% Full-page TikZ environment for background
+\begin{tikzpicture}[remember picture, overlay]
+    % Gradient background: pastel theme, scaled to page
+    \fill[white] (current page.south west) rectangle (current page.north east); % Base white
+    \shade[inner color=white, outer color=boxbg] (current page.center) circle (0.8\paperwidth); % Scaled gradient
+    % Add subtle pastel dots, scaled to page
+    \foreach \i in {1,...,50} {
+        \fill[titlepastel, opacity=0.5] (rand*0.5\paperwidth, rand*0.7\paperheight) circle (0.02cm);
+    }
+\end{tikzpicture}
+
+% Title at the top of the page
+\begin{tikzpicture}[remember picture, overlay]
+    \node[font=\Huge\bfseries, text=blueaccent, align=center, inner sep=10pt] 
+    at ([xshift=1cm, yshift=-2.5cm]current page.north) % Positioned just below page top
+    {\fbox{\parbox{0.8\textwidth}{\centering{Predators:\\The Ultimate Hunters}}}};
+\end{tikzpicture}
+
+% Content container
+\vspace*{0.1\paperheight} % Relative spacing after title
+\hrule width \textwidth height 2pt
+\vspace*{0.05\paperheight}
+
+% Left side: Circular image (Predator portrait)
+\noindent\begin{minipage}[t]{0.45\textwidth}
+    \begin{tikzpicture}
+        \begin{scope}
+            % Larger circular clipping with glow effect
+            \fill[boxframe, opacity=0.4] (0,0) circle (0.35\textwidth); % Increased glow size
+            \clip (0,0) circle (0.33\textwidth); % Increased clip size
+            \node at (0,0) {\includegraphics[width=0.66\textwidth]{image1.jpg}}; % Increased image size
+        \end{scope}
+        % Caption positioning adjusted
+        \node at (0,-0.4\textwidth) [text=blueaccent, font=\small\itshape] {A Predator in stealth mode};
+    \end{tikzpicture}
+\end{minipage}%
+\hfill
+% Right side: Information box
+\begin{minipage}[t]{0.5\textwidth}
+    \begin{tcolorbox}[
+        colback=cyan!30,
+        colframe=boxframe,
+        width=\textwidth,
+        boxrule=1.5pt,
+        arc=8pt,
+        title={Predator Profile},
+        fonttitle=\Large\bfseries,
+        coltitle=blueaccent, % Blue title
+        colbacktitle=cyan!40,
+    ]
+        \large\color{textcolor} % Black text
+        The Predators, or Yautja, are apex hunters from a distant world, renowned for their advanced technology and brutal hunting rituals.
+
+        \begin{itemize}
+            \item \textbf{Species:} Yautja
+            \item \textbf{Origin:} Unknown planet in the Orion Arm
+            \item \textbf{Weapons:} Plasma cannon, wrist blades, cloaking device
+            \item \textbf{Behavior:} Hunts for honor, targets worthy prey
+            \item \textbf{Threat Level:} \textcolor{red}{Lethal} - masters of combat and strategy
+        \end{itemize}
+        Their presence on Earth has left a trail of chaos and legend.
+    \end{tcolorbox}
+\end{minipage}
+
+% Second section: Additional image and text
+\vspace*{0.05\paperheight}
+\hrule width \textwidth height 2pt
+\vspace*{0.05\paperheight}
+
+% Left side: Second image (Predator weapon or hunt scene)
+\begin{minipage}[t]{0.45\textwidth}
+    \begin{tikzpicture}
+        \begin{scope}
+            \fill[boxframe, opacity=0.4] (0,0) circle (0.35\textwidth); % Increased glow size
+            \clip (0,0) circle (0.33\textwidth); % Increased clip size
+            \node at (0,0) {\includegraphics[width=0.66\textwidth]{image2.jpg}}; % Increased image size
+        \end{scope}
+        % Caption positioning adjusted
+        \node at (0,-0.4\textwidth) [text=blueaccent, font=\small\itshape] {Plasma cannon in action};
+    \end{tikzpicture}
+\end{minipage}%
+\hfill
+% Right side: Additional info box
+\begin{minipage}[t]{0.5\textwidth}
+    \begin{tcolorbox}[
+        colback=green!30,
+        colframe=boxframe,
+        width=\textwidth,
+        boxrule=1.5pt,
+        arc=8pt,
+        title={Hunting Tactics},
+        fonttitle=\Large\bfseries,
+        coltitle=blueaccent, % Blue title
+        colbacktitle=green!20,
+    ]
+        \large\color{textcolor} % Black text
+        Predators employ sophisticated strategies to dominate their prey:
+
+        \begin{itemize}
+            \item \textbf{Stealth:} Uses cloaking tech to become nearly invisible
+            \item \textbf{Traps:} Deploys explosive mines and nets
+            \item \textbf{Vision:} Infrared and electromagnetic vision modes
+            \item \textbf{Trophies:} Collects skulls as proof of victory
+        \end{itemize}
+        They are relentless, adapting to any environment or foe.
+    \end{tcolorbox}
+\end{minipage}
+
+\end{document}
